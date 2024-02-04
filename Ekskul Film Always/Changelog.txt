@@ -1,0 +1,36 @@
+Changelog Website
+
+===========================
+EkskulFilm Tree V3.0 West Java (Coming Soon)
+===========================
+
+Finally!! Ekskul Have Custom Domain 
+
+1. New Code Tree
+2. New Server (Use Stable Server)
+3. New Features (Button Changelog)
+4. New Features (Button RSS Update)
+5. Integrated with 2 Web Ekskul
+6. Clean UI and UX
+7. New Banner (kamingsun)
+8. New Preloader, Use Logo Animation (kamingsun)
+9. CLEAN Frameworks, pake yang penting2 aja
+
+==========================
+Ekskul Film Tree V2.0 East Java (Current Version)
+==========================
+
+1. Fitur Popup internet mati
+2. Fitur Popup anti adblock
+3. Fitur Popup anti javascriptblock
+4. Fitur anti klik kanan
+5. Fitur anti inspect
+6. use boot/preloader book
+7. use old server
+8. no custom domain
+
+=========================
+Ekskul Film Tree V1 Java (Old Version)
+=========================
+
+1. Rilis
