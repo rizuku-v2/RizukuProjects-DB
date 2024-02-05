@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+&lt;head&gt;
+  
+  
+
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+<b:comment><!-- all-head-content start --></b:comment>
+
+<meta expr:content='&quot;text/html; charset=&quot; + data:blog.encoding' http-equiv='Content-Type'/>
+
+<b:if cond='data:widgets'>
+    <meta expr:content='data:skin.vars.body_background_color' name='theme-color'/>
+    <meta expr:content='data:skin.vars.body_background_color' name='msapplication-navbutton-color'/>
+</b:if>
+<meta content='blogger' name='generator'/>
+<link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+<b:if cond='data:blog.adultContent'>
+    <meta content='adult' name='rating'/>
+</b:if>
+<link expr:href='data:view.url.canonical' rel='canonical'/>
+<data:blog.feedLinks/>
+<data:blog.meTag/>
+<b:tag cond='data:blog.googleProfileUrl' expr:href='data:blog.googleProfileUrl' name='link' rel='publisher'/>
+<b:tag cond='data:view.featuredImage' expr:href='data:view.featuredImage' name='link' rel='image_src'/>
+
+<b:if cond='data:view.isSearch and data:view.search.label in [&quot;Produk&quot;,&quot;Products&quot;,&quot;Jasa&quot;,&quot;Services&quot;]'>
+    <b:if cond='data:blog.metaDescription'>
+        <meta expr:content='data:blog.pageName + &quot; - &quot; + data:blog.title + &quot; - &quot; + data:blog.metaDescription' name='description'/> 
+    </b:if>
+<b:elseif cond='data:view.isHomepage'/>
+    <b:if cond='data:blog.metaDescription'>
+        <meta expr:content='data:blog.metaDescription' name='description'/>
+    </b:if>
+<b:elseif cond='data:view.isSingleItem'/>
+    <b:if cond='data:blog.metaDescription'>
+        <meta expr:content='data:blog.metaDescription' name='description'/>
+    </b:if> 
+</b:if>
+
+<b:include name='openGraphMetaData'/>
+
+<b:comment><!-- all-head-content end --></b:comment>
+
+
+<b:comment><!-- Title start --></b:comment>
+<b:if cond='data:view.isPost'>
+    <title><data:blog.pageName/> - <data:blog.title/></title> <b:comment><!-- title post --></b:comment>
+<b:elseif cond='data:view.isPage'/>
+    <title><data:blog.pageName/> - <data:blog.title/></title> <b:comment><!-- title page --></b:comment>
+<b:elseif cond='data:view.isHomepage'/>
+    <title><data:blog.pageTitle/></title> <b:comment><!-- title homepage --></b:comment>
+<b:elseif cond='data:view.isArchive'/>
+    <title><data:blog.pageName/> - <data:blog.title/></title> <b:comment><!-- title archive --></b:comment>
+<b:elseif cond='data:view.isLabelSearch'/>
+    <title><data:blog.pageName/> - <data:blog.title/></title> <b:comment><!-- title label --></b:comment>
+<b:elseif cond='data:view.search.query'/>
+    <title><data:blog.pageName/> - <data:blog.title/></title> <b:comment><!-- title search --></b:comment>
+<b:elseif cond='data:view.isError'/>
+    <title>404 : <data:messages.theresNothingHere/></title> <b:comment><!-- title error --></b:comment>
+<b:elseif cond='data:view.isMultipleItems and data:blog.pageName == &quot;&quot;'/>
+    <title><data:messages.showAll/> - <data:blog.title/></title> <b:comment><!-- title all post --></b:comment>
+<b:else/>
+    <title><data:blog.pageName/></title> <b:comment><!-- default title --></b:comment>
+</b:if>
+<b:comment><!-- Title end --></b:comment>
+
+<b:comment><!-- Meta keywords start --></b:comment>
+<b:if cond='data:view.isHomepage'>
+    <meta expr:content='data:blog.title' name='keywords'/> 
+<b:elseif cond='data:view.isSingleItem'/>
+    <meta expr:content='data:blog.pageName' name='keywords'/>
+</b:if>
+<b:comment><!-- Meta keywords end --></b:comment>
+
+<b:comment><!-- Meta tag Twitter Cards --></b:comment>
+<b:if cond='data:view.isHomepage'>
+    <meta content='summary_large_image' name='twitter:card'/>
+    <meta expr:content='data:blog.title' property='twitter:title'/>
+    <meta expr:content='data:blog.url' property='twitter:url'/>
+<b:elseif cond='data:view.isSingleItem'/>
+    <meta content='summary_large_image' name='twitter:card'/>
+    <meta expr:content='data:blog.pageName' property='twitter:title'/>
+    <meta expr:content='data:blog.url' property='twitter:url'/>
+</b:if>
+<b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' property='twitter:description'/>
+<b:else/>
+    <meta expr:content='data:blog.pageName + &quot; - &quot; + data:blog.title + &quot; - &quot; + data:blog.homepageUrl' property='twitter:description'/>
+</b:if> 
+<b:if cond='data:view.featuredImage'>
+    <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' property='twitter:image'/>
+  <b:elseif cond='data:widgets'/>
+    <b:loop values='data:widgets.Blog.first.posts where (p =&gt; p.featuredImage) map (p =&gt; p.featuredImage)' var='imageUrl'>
+      <meta expr:content='resizeImage(data:imageUrl, 1200, &quot;1200:630&quot;)' property='twitter:image'/>
+    </b:loop>
+  <b:elseif cond='data:blog.postImageUrl'/>
+    <meta expr:content='resizeImage(data:blog.postImageUrl, 1200, &quot;1200:630&quot;)' property='twitter:image'/>
+</b:if>
+<b:comment><!-- Meta tag Twitter Cards End --></b:comment>
+
+<b:comment><!-- preconnect and dns-prefetch --></b:comment>
+<link crossorigin='' href='https://www.blogger.com/' rel='preconnect'/>
+<link crossorigin='' href='https://fonts.googleapis.com/' rel='preconnect'/>
+<link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
+<link crossorigin='' href='https://blogger.googleusercontent.com/' rel='preconnect'/>
+<link href='https://www.blogger.com/' rel='dns-prefetch'/>
+<link href='https://fonts.googleapis.com/' rel='dns-prefetch'/>
+<link href='https://fonts.gstatic.com' rel='dns-prefetch'/>
+<link href='https://blogger.googleusercontent.com/' rel='dns-prefetch'/>
+<link href='https://1.bp.blogspot.com/' rel='dns-prefetch'/>
+<link href='https://2.bp.blogspot.com/' rel='dns-prefetch'/>
+<link href='https://3.bp.blogspot.com/' rel='dns-prefetch'/>
+<link href='https://4.bp.blogspot.com/' rel='dns-prefetch'/>
+<b:comment><!-- preconnect and dns-prefetch end --></b:comment>
+
+<style id='page-skin-1' type='text/css'>
+  
+  .post-body img {
+  max-width:100%;
+  height:auto;
+}
+
+
+p {
+  font-family: &#39;Manrope&#39;, sans-serif;
+}
+
+
+<!--
+    Theme           : Linktree Clone | Blogger Template
+    Theme Version   : V2.6 | Unlimited Works
+    Type            : FreeMium Blogger Template
+    Works By        : InpuTekno | RulNoveID
+    Re Works By     : Rizuku Rizu | RidzFadz
+-->
+  
+
+</style>
+
+<b:skin version='1.3.0'><![CDATA[
+
+/****CSS CODE*****/
+:root{
+--body-bg: #f7f8f9 none repeat fixed top cente;
+--body-bg-img: #f7f7f7 url(https://blogger.googleusercontent.com/img/a/AVvXsEjiVAdgk1o2TISssKjWv7zhq2_I09liL5mXMYdtmACebwPoeVK4ZnYJ8sxltJ_akq9lVbD_UPeN5pGFTOzKf-3UsmU9FB7FxUypR2EjSmhqTDzHelY1cU2NrUCt3q_CBNrfwAz-LMex3mqlftRQRRckk9bRidYozzQQnPOgHp039GEybjYQkhXf1hAHdw=s16000);
+--text-color: #202124;
+--main-color: #3d55ef;
+--head-color: #202124;
+--link-color: #000;
+--hover-color: #24272a;
+--body-font: normal normal 1rem Poppins;
+--border-radius: 10px;
+--border-1: #f3f3f3;
+--border-2: rgba(0, 0, 0, 0.175);
+--transition: all .3s;
+--transition-2: all .4s ease;
+}
+
+[data-bs-theme=dark] {
+--body-bg: #242424 none repeat fixed top left;
+--text-color: #a5a5a5;
+--main-color: #3d55ef;
+--head-color: #e7e7e7;
+--link-color: #e7e7e7;
+--border-1: #f3f3f3;
+--border-2: rgba(255, 255, 255, 0.15);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Dosis:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@10&display=swap');
+@media screen and (min-width:768px){::-webkit-scrollbar{-webkit-appearance:none;width:4px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.35)}::-webkit-scrollbar-thumb:active{background:rgba(0,0,0,.35)}}
+
+*, :after, :before {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+html {position:relative;-webkit-text-size-adjust:100%;}
+body {position:relative;background:var(--body-bg);color:var(--text-color);font:var(--body-font);overflow-x:hidden;margin:0}
+
+/* main css */
+.flex {display:flex}
+a {text-decoration:none;color:var(--link-color)} svg {width:14px;height:auto} .hidden {display:none}
+h1, h2, h3, h4, h5, h6 {color:var(--head-color)}
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after, h1::before, h2::before, h3::before, h4::before, h5::before, h6::before{content:'';display:inline-block;vertical-align:middle; width:25px; margin:0 10px;border-bottom:1px solid #989b9f; opacity:.5}
+.container {--bs-gutter-x:1.5rem;--bs-gutter-y:1.5rem;width:100%;padding-right:calc(var(--bs-gutter-x) * .5);padding-left:calc(var(--bs-gutter-y) * .5);margin-right:auto;margin-left:auto}
+@media screen and (min-width:576px){.container{max-width:540px}}
+@media screen and (min-width:768px){.container{max-width:720px}}
+@media screen and (min-width:992px){.container{max-width:960px}}
+@media screen and (min-width:1200px){.container{max-width:1140px}}
+
+/* header css */
+#header-profile {padding:50px 20px;width:100%;position:relative}
+.profile {position:relative;text-align:center;margin-top:50px}
+.profile img {width:85px;height:auto;border-radius:100%;border:1px solid var(--border-1);padding:3px}
+.profile svg {fill:#1d9aef}
+.profile .name {--gap:.5rem;align-items:center;justify-content:center;gap:var(--gap);font-weight:700;color:var(--head-color)}
+.sticky-top {position:-webkit-sticky;position:sticky!important;top:-20px;transform:translateY(40px);transition:var(--transition);z-index:1020}
+.sticky-top {max-width:calc(788px)!important;margin:0 auto;padding:10px;background:rgba(90, 90, 90, 0.12);backdrop-filter:blur(10px);border-radius:var(--border-radius)}
+.sticky-top img {float:left;width:45px;margin-right:5px}
+.sticky-top>*:not(:first-child) {display:block;text-align:start;margin:auto;margin-left:50px}
+
+/* Dark button css */
+.dark-mode {display:inline-block;position:absolute;top:50px;right:45px}
+.dark-mode svg {width:22px}
+#darkmodes:checked ~ label svg:nth-child(2){fill:var(--linkC);}
+#darkmodes ~ label svg{display:none}
+#darkmodes:not(:checked) ~ label svg:nth-child(1), #darkmodes:checked ~ label svg:nth-child(2){display:block}
+
+/* linktree css */
+#linktreeList {--gap:1.1rem;position:relative;align-items:center;flex-direction:column;gap:var(--gap);max-width:680px;margin:auto}
+#linktreeList a {position:relative;text-align:center;padding:15px;border:1px solid var(--border-2);border-radius:var(--border-radius);width:100%;transition:var(--transition) ease}
+#linktreeList a> i {float:left}
+#linktreeList a:hover {color:#fff;background-color:var(--hover-color);transition:all .3s ease;transform:scale(1.02);border:1px solid transparent}
+#LinktreeListwo {position:relative;text-align:center;max-width:680px;margin:auto}
+#LinktreeListwo .gears {--gap:.5rem;align-items:center;justify-content:center;flex-wrap:wrap;gap:var(--gap)}
+.gears>* {--gap:.5rem;display:flex;align-items:center;gap:var(--gap);padding:10px;border:1px solid var(--border-2);border-radius:var(--border-radius);transition:var(--transition) ease}
+.gears>*:hover {color:var(--main-color);transition:var(--transition) ease;transform:scale(1.02)}
+
+/* color social media */
+#linktreeList a.Facebook:hover {background-color:#062db9}
+#linktreeList a.Twitter:hover {background-color:#20a1eb}
+#linktreeList a.Youtube:hover {background-color:#FF0000}
+#linktreeList a.LinkedIn:hover {background-color:#0A66C2}
+#linktreeList a.GitHub:hover {background-color:#6e5494}
+#linktreeList a.Play.Store:hover {background-color:#ffd400}
+#linktreeList a.TikTok:hover {background:linear-gradient(30deg, #25F4EE, #000000, #FE2C55)}
+#linktreeList a.Pinterest:hover {background-color:#c8232c}
+#linktreeList a.Instagram:hover {background:linear-gradient(45deg, #833ab4, #c13584, #e1306c, #fd1d1d)}
+#linktreeList a.WhatsApp:hover {background-color:#25D366}
+#linktreeList a.Email:hover {background-color:#BB001B}
+#linktreeList a.Medium:hover{background:#211f1f}
+#linktreeList a.Paypal:hover{background:#2997D8}
+#linktreeList a.Twitch:hover{background:#6441A4}
+#linktreeList a.Spotify:hover{background:#1db954}
+#linktreeList a.Discord:hover{background:#5865F2}
+#linktreeList a.Line:hover{background:#00B900}
+#linktreeList a.Dribbble:hover{background:#E94C88}
+#linktreeList a.Signal:hover{background:#237f52}
+#linktreeList a.Reddit:hover{background:#FF4500}
+
+/* footer css */
+footer {font-size:.875rem;text-align:center;border-top:1px solid var(--border-2);margin-top:25px}
+footer .copyright {padding:35px 0}
+footer .copyright a {color:var(--text-color)}
+
+/* Pop-Up Box (Style 2) by Fineshop */
+.popSc{position:fixed;top:0;bottom:0;left:0;right:0;padding:20px;background:rgba(255, 255, 255, 0.1);z-index:99980;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:flex;justify-content:center;align-items:center}
+.popSc.hidden{display:none}
+.popSc .popBo{position:relative;background:rgba(255, 255, 255, 0.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);max-width:400px;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:30px;border-radius:20px;box-shadow:0 5px 25px rgb(0 0 0 / 20%)}
+.popSc .popBo svg{display:block;width:50px;height:50px;fill:none !important;stroke:#08102b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+.popSc .popBo h2{margin:10px 0 15px 0;font-size:1.2rem;font-weight:800;color:#08102b}
+.popSc .popBo p{margin:0;line-height:1.7em;font-size:0.9rem;color:#08102b}
+.popSc .popBo .popBtn{display:inline-flex;justify-content:center;align-items:center;height:50px;width:50px;outline:none;border:none;background:#482dff;border-radius:50%;margin-top:20px;transition:all .2s ease;-webkit-transition:all .2s ease}
+.popSc .popBo .popBtn:hover{transform:scale(1.05);-webkit-transform:scale(1.05)}
+.popSc .popBo .popBtn svg{width:24px;height:24px;stroke:#fff;flex-shrink:0}
+.popSc .popBo .popBtn svg.r{animation:rotateIcn 1.5s infinite linear;-webkit-animation:rotateIcn 1.5s infinite linear}
+.popSc{animation:popupBlur .3s ease-in; -webkit-animation:popupBlur .3s}
+.popSc >*{animation:popupScale .3s ease-in; -webkit-animation:popupScale .3s}
+.darkMode .popSc{background:rgba(0, 0, 0, 0.1)}
+.darkMode .popSc .popBo{background:rgba(50, 50, 50, 0.8)}
+.darkMode .popSc .popBo svg{stroke:#fefefe}
+.darkMode .popSc .popBo p, .darkMode .popSc .popBo h2{color:#fefefe}
+@keyframes popupBlur {from{opacity:0}to{opacity:1}}
+@-webkit-keyframes popupBlur{from{opacity:0}to{opacity:1}}
+@keyframes popupScale{from{transform:scale(0);animation-timing-function:ease-in;opacity:0}to{transform:scale(1);opacity:1}}
+@-webkit-keyframes popupScale{from{-webkit-transform:scale(0);-webkit-animation-timing-function: ease-in;opacity:0}to{-webkit-transform:scale(1);opacity:1}}
+@keyframes rotateIcn{from{transform:rotate(0deg)} to{transform:rotate(359deg)}}
+@-webkit-keyframes rotateIcn{from{-webkit-transform:rotate(0deg)} to{-webkit-transform:rotate(359deg)}}
+
+/* Pop-Up Box (Style 2) by Fineshop */
+.popSc{position:fixed;top:0;bottom:0;left:0;right:0;padding:20px;background:rgba(255, 255, 255, 0.1);z-index:99980;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:flex;justify-content:center;align-items:center}
+.popSc.hidden{display:none}
+.popSc .popBo{position:relative;background:rgba(255, 255, 255, 0.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);max-width:400px;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:30px;border-radius:20px;box-shadow:0 5px 25px rgb(0 0 0 / 20%)}
+.popSc .popBo svg{display:block;width:50px;height:50px;fill:none !important;stroke:#08102b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+.popSc .popBo h2{margin:10px 0 15px 0;font-size:1.2rem;font-weight:800;color:#08102b}
+.popSc .popBo p{margin:0;line-height:1.7em;font-size:0.9rem;color:#08102b}
+.popSc .popBo .popBtn{display:inline-flex;justify-content:center;align-items:center;height:50px;width:50px;outline:none;border:none;background:#482dff;border-radius:50%;margin-top:20px;transition:all .2s ease;-webkit-transition:all .2s ease}
+.popSc .popBo .popBtn:hover{transform:scale(1.05);-webkit-transform:scale(1.05)}
+.popSc .popBo .popBtn svg{width:24px;height:24px;stroke:#fff;flex-shrink:0}
+.popSc .popBo .popBtn svg.r{animation:rotateIcn 1.5s infinite linear;-webkit-animation:rotateIcn 1.5s infinite linear}
+.popSc{animation:popupBlur .3s ease-in; -webkit-animation:popupBlur .3s}
+.popSc >*{animation:popupScale .3s ease-in; -webkit-animation:popupScale .3s}
+.darkMode .popSc{background:rgba(0, 0, 0, 0.1)}
+.darkMode .popSc .popBo{background:rgba(50, 50, 50, 0.8)}
+.darkMode .popSc .popBo svg{stroke:#fefefe}
+.darkMode .popSc .popBo p, .darkMode .popSc .popBo h2{color:#fefefe}
+@keyframes popupBlur {from{opacity:0}to{opacity:1}}
+@-webkit-keyframes popupBlur{from{opacity:0}to{opacity:1}}
+@keyframes popupScale{from{transform:scale(0);animation-timing-function:ease-in;opacity:0}to{transform:scale(1);opacity:1}}
+@-webkit-keyframes popupScale{from{-webkit-transform:scale(0);-webkit-animation-timing-function: ease-in;opacity:0}to{-webkit-transform:scale(1);opacity:1}}
+@keyframes rotateIcn{from{transform:rotate(0deg)} to{transform:rotate(359deg)}}
+@-webkit-keyframes rotateIcn{from{-webkit-transform:rotate(0deg)} to{-webkit-transform:rotate(359deg)}}
+
+/* Toast Notification by Fineshop */
+.tNtf span{position:fixed;left:24px;bottom:-70px;display:inline-flex;align-items:center;text-align:center;justify-content:center;margin-bottom:20px;z-index:99981;background:#323232;color:rgba(255,255,255,.8);font-size:14px;font-family:inherit;border-radius:3px;padding:13px 24px; box-shadow:0 5px 35px rgba(149,157,165,.3);opacity:0;transition:all .1s ease;animation:slideinwards 2s ease forwards;-webkit-animation:slideinwards 2s ease forwards}
+@media screen and (max-width:500px){.tNtf span{margin-bottom:20px;left:20px;right:20px;font-size:13px}}
+@keyframes slideinwards{0%{opacity:0}20%{opacity:1;bottom:0}50%{opacity:1;bottom:0}80%{opacity:1;bottom:0}100%{opacity:0;bottom:-70px;visibility:hidden}}
+@-webkit-keyframes slideinwards{0%{opacity:0}20%{opacity:1;bottom:0}50%{opacity:1;bottom:0}80%{opacity:1;bottom:0}100%{opacity:0;bottom:-70px;visibility:hidden}}
+.darkMode .tNtf span{box-shadow:0 10px 40px rgba(0,0,0,.2)}
+
+/* Cookies Consent Notice by Fineshop */
+.ckWrap{position:fixed;right:0;left:0;bottom:-600px;z-index:50;width:100%;padding:20px;background:rgba(255, 255, 255, 0.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:30px 30px 0 0;box-shadow:0 -10px 25px -5px rgba(0,0,0,.1);align-items:center;justify-content:center;text-align:center;animation:ckUp 2.5s forwards;animation-delay:1s;-webkit-animation:ckUp 2.5s forwards;-webkit-animation-delay:1s}
+.ckWrap.acptd{animation:ckDn 2.5s backwards;animation-delay:.3s;-webkit-animation:ckDn 2.5s backwards;-webkit-animation-delay:.3s}
+.ckWrap.hidden{display:none}
+.ckWrap .ckCont svg{width:50px;height:50px;fill:#08102b;stroke:#08102b;stroke-width:.8}
+.ckCont h2{margin:0;color:#08102b;font-size:1.5rem;font-weight:800;font-family:inherit}
+.ckCont p{margin:10px 0;line-height:1.7em;color:#08102b;font-size:0.9rem;font-weight:400;font-family:inherit}
+.ckWrap .btn{display:inline-flex;align-items:center;margin:0;padding:10px 15px;outline:0;border:0;border-radius:2px;line-height:20px;color:#fefefe;background-color:#482dff;font-size:13px;font-family:inherit;text-decoration:none;white-space:nowrap;overflow:hidden;max-width:100%;cursor:pointer;transition:all 0.3s ease}
+.ckWrap .btn:hover{opacity:.8;transform:scale(0.97)}
+.ckWrap .btn.outl{color:#08102b;margin-left:8px;background-color:transparent;border:1px solid #767676}
+.ckWrap .btn.outl:hover{border-color:#482dff}
+@media screen and (min-width:768px){.ckWrap{max-width:450px;border-radius:10px;left:auto;right:30px;bottom:-500px;box-shadow:0 5px 35px rgba(0,0,0,.1);animation:ckdeskUp 2.5s forwards;animation-delay:1s;-webkit-animation:ckdeskUp 2.5s forwards;-webkit-animation-delay:1s}.ckWrap.acptd{animation:ckdeskDn 2.5s backwards;animation-delay:.3s;-webkit-animation:ckdeskDn 2.5s backwards;-webkit-animation-delay:0.3s}}
+@-webkit-keyframes ckUp{100%{bottom:0}}
+@keyframes ckUp{100%{bottom:0}}
+@-webkit-keyframes ckdeskUp{100%{bottom:30px}}
+@keyframes ckdeskUp{100%{bottom:30px}}
+@-webkit-keyframes ckDn{0%{bottom:0}100%{bottom:-600px}}
+@keyframes ckDn{0%{bottom:0}100%{bottom:-600px}}
+@-webkit-keyframes ckdeskDn{0%{bottom:30px}100%{bottom:-600px}}
+@keyframes ckdeskDn{0%{bottom:30px}100%{bottom:-600px}}
+.darkMode .ckWrap{background:rgba(50, 50, 50, 0.8)}
+.darkMode .ckWrap .ckCont svg{fill:#fefefe;stroke:#fefefe}
+.darkMode .ckCont h2, .darkMode .ckCont p, .darkMode .btn.outl{color:#fefefe}
+
+BODY {
+ user-select:none;
+ -moz-user-select:none;
+ -ms-user-select:none;
+ -khtml-user-select:none;
+ -webkit-user-select:none
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #4691f6;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+.post-body img {
+  max-width:100%;
+  height:auto;
+}
+
+]]></b:skin>
+
+
+<!-- BG Animation -->
+<style type='text/css'>
+/* Title Animation Css */
+#titleanimation{position:relative}#titleanimation:before,#titleanimation:after{content:&quot;&quot;;position:absolute;top:50%;width:3%;height:100%;transform:translateY(-50%);background:#8bb9fe;z-index:1}#titleanimation:before{left:155%;animation:light-left 1.8s infinite alternate linear}#titleanimation:after{right:-55%;animation:light-right 3.0s infinite alternate linear}@keyframes light-left{0%{left:85%;opacity:0}50%{left:40%;opacity:1}100%{left:50%;opacity:0}}@keyframes light-right{0%{right:80%;opacity:0}50%{right:100%;opacity:1}100%{right:0%;opacity:0}}
+</style>
+
+<!-- NoScript Anti Inspect -->
+<noscript>
+<style type='text/css'>
+/* No Script */
+body,html{overflow:hidden}
+.noscript{background:#e74c3c;color:#fff;padding:8% 0 0 0;position:fixed;bottom:0;left:0;top:0;right:0;z-index:1000;height:auto;-webkit-transform:translateZ(0);transform:translateZ(0);overflow:hidden}
+.noscript p{margin:0;text-align:center;padding:0 20px 10px 20px;margin:auto;font-size:3rem;line-height:1.5;font-family:monospace;max-width:1010px;text-transform:uppercase;font-weight:700}
+.noscript p span{color:#ffe88b;font-size:10rem;line-height:normal;font-weight:normal}
+</style>
+</noscript>
+
+<!-- Anti Ad Blocker -->
+<script>/*<![CDATA[*/
+/**
+ * Anti Ad Blocker Code by Fineshop Design
+ * Last Updated: 16:42 12/08/2023 IST
+ * Copyright: [Deo Kumar, Fineshop Design](https://www.fineshopdesign.com)
+ */
+(function(){const n=document,o=n.head;var t="pointer-events: none; height: 1px; width: 0; opacity: 0; visibility: hidden; position: fixed; bottom: 0;";const a=n.createElement("div"),s=n.createElement("div"),d=n.createElement("ins");a.id="div-gpt-ad-3061307416813-0",a.style=t,s.className="textads banner-ads banner_ads ad-unit ad-zone ad-space adsbox ads",s.style=t,d.className="adsbygoogle",d.style="display: none;";const i={allowed:null,elements:[a,s,d]};this.checkAdsStatus=function(t){const e=n.body;"function"==typeof t&&("boolean"==typeof i.allowed?t(i):(e.appendChild(a),e.appendChild(s),e.appendChild(d),setTimeout(function(){if(0===a.offsetHeight||0===s.offsetHeight||d.firstElementChild)i.allowed=!1,t(i);else{const e=n.createElement("script");e.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",e.async=!0,e.crossOrigin="anonymous",e.onload=function(){i.allowed=!0,t(i)},e.onerror=function(){i.allowed=!1,t(i)},o.appendChild(e)}a.remove(),s.remove(),d.remove()},40)))}}).call(this);
+
+function antiAdBlockerHandler() {
+  window.checkAdsStatus(function(ads) {
+    if (!ads.allowed) {
+      // Ads are Blocked
+      console.log("%c[ADS]", "color:#d32f2f;", "Blocked");
+
+      const icon = "<svg style='stroke:none;fill:currentColor!important' viewBox='0 0 24 24'><path d='M12.2 9L10.2 7H13C14.1 7 15 7.9 15 9V11.8L13 9.8V9H12.2M23 9V7H19C17.9 7 17 7.9 17 9V11C17 12.1 17.9 13 19 13H21V15H18.2L20.2 17H21C22.1 17 23 16.1 23 15V13C23 11.9 22.1 11 21 11H19V9H23M22.1 21.5L20.8 22.8L14.4 16.4C14.1 16.7 13.6 17 13 17H9V10.9L7 8.9V17H5V13H3V17H1V9C1 7.9 1.9 7 3 7H5.1L1.1 3L2.4 1.7L22.1 21.5M5 9H3V11H5V9M13 14.9L11 12.9V15H13V14.9Z'/></svg>";
+      const title = "Ad blocker detected!";
+      const message = "<center><p>We have detected that you are using adblocking plugin in your browser.<br/>The revenue we earn by the advertisements is used to manage this website, we request you to whitelist our website in your adblocking plugin.</p></center>";
+
+      // Lets create the popup
+      const element = document.createElement("div");
+      element.className = "popSc";
+      element.innerHTML = "<div class='popBo'>" + icon + "<h2>" + title + "</h2><div class='popCo'>" + message + "</div></div>"
+      document.body.appendChild(element);
+    } else {
+      // Ads are allowed;
+      console.log("%c[ADS]", "color:#43a047;", "Allowed");
+    }
+  });
+  document.removeEventListener("DOMContentLoaded", antiAdBlockerHandler);
+};
+
+if (document.readyState === "complete" || document.readyState !== "loading") {
+  antiAdBlockerHandler();
+} else {
+  document.addEventListener("DOMContentLoaded", antiAdBlockerHandler);
+}
+/*]]>*/</script>
+
+<!-- Deteksi Cookie -->
+<script>/*<![CDATA[*/ /* Disable default Blogger cookie notice */ cookieChoices = {}; /*]]>*/</script>
+
+<!-- Script Style UI -->
+<link href='styles.css' rel='stylesheet'/>
+
+<!-- Normalize CSS -->
+<link href='https://unpkg.com/@csstools/normalize.css' rel='stylesheet'/>
+
+<!-- Popper JS Core -->
+<script crossorigin='anonymous' integrity='sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=' src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js'/>
+
+<!-- Bootstrap CSS Core -->
+<link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' rel='stylesheet'/>
+
+<!-- Bootstrap JS Core -->
+<script crossorigin='anonymous' integrity='sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL' src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'/>
+
+<!-- Bootstrap ICONS JS CSS Core -->
+<link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css' integrity='sha256-SD4b9urSXVSzdFbPDlHqAiDZ3gPva6Ki2MPzSkvDTBc=' rel='stylesheet'/>
+
+<!-- Font Awesome Free -->
+<link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css' integrity='sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK' rel='stylesheet'/>
+
+<!-- Font Awesome JS -->
+<script crossorigin='anonymous' integrity='sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==' referrerpolicy='no-referrer' src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js'/>
+
+<!-- Font Awesome Core CSS I -->
+<link crossorigin='anonymous' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==' referrerpolicy='no-referrer' rel='stylesheet'/>
+
+<!-- Font Awesome Core CSS II -->
+<link href='//use.fontawesome.com/releases/v6.5.1/css/all.css' rel='stylesheet'/>
+
+<!-- Font Awesome Core -->
+<link href='https://www.bootstrapcdn.com/fontawesome/' rel='stylesheet'/>
+
+<!-- jQuery Core -->
+<script crossorigin='anonymous' integrity='sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=' src='https://code.jquery.com/jquery-3.7.1.js'/>
+
+<!-- jQuery Core Mini -->
+<script crossorigin='anonymous' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' src='https://code.jquery.com/jquery-3.7.1.min.js'/>
+
+<!-- jQuery Migrate -->
+<script crossorigin='anonymous' integrity='sha256-CfQXwuZDtzbBnpa5nhZmga8QAumxkrhOToWweU52T38=' src='https://code.jquery.com/jquery-migrate-3.4.1.js'/>
+
+<!-- jQuery Migrate Mini -->
+<script crossorigin='anonymous' integrity='sha256-UnTxHm+zKuDPLfufgEMnKGXDl6fEIjtM+n1Q6lL73ok=' src='https://code.jquery.com/jquery-migrate-3.4.1.min.js'/>
+  
+<!-- Light Gallery I -->
+  <script src='https://cdn.jsdelivr.net/gh/Arlina-Design/FlamingTree@master/lightgallery.js'/>
+  
+<!-- Light Gallery II -->
+  <script crossorigin='anonymous' integrity='sha256-feKFTnlUEF8rkf9Zg3ScTjx69R4FquJ5+KXWaZSoV3c=' src='https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js'/>
+  
+<!-- Light Gallery III -->
+  <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css' integrity='sha256-Eg8Gfr1vMiM54szM1+h+M018fqWyvVU/Ml8q48Oub+g=' rel='stylesheet'/>
+
+<!-- Light Gallery IV -->
+<link href='https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.css' rel='stylesheet'/>
+  <script type='text/javascript'/>
+  
+  <!-- Script jquery dari salah satu penyedia -->
+  <script crossorigin='anonymous' integrity='sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=' src='https://code.jquery.com/jquery-3.7.1.js'/>
+  <!-- Script image progress bar preloader yang saya buat -->
+  <script>
+    // Menentukan elemen progress bar dan label
+    var progressBar = $(&quot;#progressBar&quot;);
+    var progressLabel = $(&quot;#progressLabel&quot;);
+
+    // Menentukan jumlah gambar yang perlu dimuat
+    var images = $(&quot;img&quot;);
+    var totalImages = images.length;
+
+    // Menentukan fungsi untuk menampilkan persentase dan mengubah warna progress bar
+    var updateProgress = function(loaded) {
+      var percentage = Math.round(loaded / totalImages * 100);
+      progressLabel.text(percentage + &quot;%&quot;);
+      progressBar.css(&quot;background-color&quot;, &quot;hsl(&quot; + percentage + &quot;, 100%, 50%)&quot;);
+    };
+
+    // Menjalankan fungsi ketika halaman siap
+    $(document).ready(function() {
+      // Menyembunyikan semua gambar terlebih dahulu
+      images.hide();
+
+      // Membuat variabel untuk menyimpan jumlah gambar yang sudah dimuat
+      var loadedImages = 0;
+
+      // Menambahkan event handler untuk setiap gambar
+      images.each(function() {
+        // Membuat objek Image baru
+        var image = new Image();
+
+        // Menetapkan sumber gambar dari elemen img
+        image.src = $(this).attr(&quot;src&quot;);
+
+        // Menambahkan event handler untuk onload, onerror, dan onabort
+        image.onload = image.onerror = image.onabort = function() {
+          // Menambahkan jumlah gambar yang sudah dimuat
+          loadedImages++;
+
+          // Memperbarui progress bar
+          updateProgress(loadedImages);
+
+          // Jika semua gambar sudah dimuat, tampilkan gambar dan sembunyikan progress bar
+          if (loadedImages == totalImages) {
+            images.fadeIn();
+            progressBar.hide();
+            progressLabel.hide();
+          }
+        };
+      });
+    });
+  </script>
+
+&lt;!--<head/>
+
+&lt;!--<body>--&gt;&lt;body&gt;
+  
+  <!-- Script jquery dari salah satu penyedia -->
+  <script crossorigin='anonymous' integrity='sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=' src='https://code.jquery.com/jquery-3.7.1.js'/>
+  <!-- Script image progress bar preloader yang saya buat -->
+  <script>
+    // Menentukan elemen progress bar dan label
+    var progressBar = $(&quot;#progressBar&quot;);
+    var progressLabel = $(&quot;#progressLabel&quot;);
+
+    // Menentukan jumlah gambar yang perlu dimuat
+    var images = $(&quot;img&quot;);
+    var totalImages = images.length;
+
+    // Menentukan fungsi untuk menampilkan persentase dan mengubah warna progress bar
+    var updateProgress = function(loaded) {
+      var percentage = Math.round(loaded / totalImages * 100);
+      progressLabel.text(percentage + &quot;%&quot;);
+      progressBar.css(&quot;background-color&quot;, &quot;hsl(&quot; + percentage + &quot;, 100%, 50%)&quot;);
+    };
+
+    // Menjalankan fungsi ketika halaman siap
+    $(document).ready(function() {
+      // Menyembunyikan semua gambar terlebih dahulu
+      images.hide();
+
+      // Membuat variabel untuk menyimpan jumlah gambar yang sudah dimuat
+      var loadedImages = 0;
+
+      // Menambahkan event handler untuk setiap gambar
+      images.each(function() {
+        // Membuat objek Image baru
+        var image = new Image();
+
+        // Menetapkan sumber gambar dari elemen img
+        image.src = $(this).attr(&quot;src&quot;);
+
+        // Menambahkan event handler untuk onload, onerror, dan onabort
+        image.onload = image.onerror = image.onabort = function() {
+          // Menambahkan jumlah gambar yang sudah dimuat
+          loadedImages++;
+
+          // Memperbarui progress bar
+          updateProgress(loadedImages);
+
+          // Jika semua gambar sudah dimuat, tampilkan gambar dan sembunyikan progress bar
+          if (loadedImages == totalImages) {
+            images.fadeIn();
+            progressBar.hide();
+            progressLabel.hide();
+          }
+        };
+      });
+    });
+  </script>
+  
+    
+
+
+
+
+<!-- NoScript Anti Inspect -->
+<noscript>
+<div class='noscript'>
+<p><span>&#9888;</span></p>
+<p>Please Enable Javascript to view our site content</p>
+<p>Thank you</p>
+</div>
+</noscript>
+
+<!--[ Toast Notification by Fineshop ]-->
+<div class='tNtf' id='toastNotif'/>
+
+<script>/*<![CDATA[*/ /* No Internet Connection Script by Fineshop */ function pageReload(){var n=document.querySelector("#noInternet .popBo .popBtn svg");null!=n&&n.classList.add("r"),setTimeout(function(){window.location.reload()},500)};window.addEventListener("offline",function(){document.querySelector("#noInternet").classList.remove("hidden"),document.querySelector("#toastNotif").innerHTML="<span>No internet connection!</span>"}),window.addEventListener("online",function(){document.querySelector("#noInternet").classList.add("hidden"),document.querySelector("#toastNotif").innerHTML="<span>Internet connection restored!</span>"}); /*]]>*/</script>
+
+
+<div class='container'>
+  <!-- header profile -->
+  <div id='header-profile'>
+    <div class='profile'>
+      <img alt='pic' class='profile-picture' src='https://iili.io/JFd03pj.png'/>
+      <div class='name flex'>EKSKUL Cinematography Al Wahyu
+      <svg viewBox='0 0 16 16'><path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z'/></svg>
+      </div>
+      <div class='about'>Work Together !</div>
+    </div>
+    <div class='dark-mode'>
+      <input class='hidden' id='darkmodes' type='checkbox'/>
+      <label class='btn btn-floating btn-lg darkmode' data-bs-placement='left' data-bs-title='Dark Mode' data-bs-toggle='tooltip' for='darkmodes'>
+        <svg class='sun' viewBox='0 0 512 512'><path d='M256 48v48m0 320v48m147.08-355.08-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48m-320 0H48m355.08 147.08-33.94-33.94M142.86 142.86l-33.94-33.94' fill='none' stroke='currentColor' stroke-linecap='round' stroke-miterlimit='10' stroke-width='32'/><circle cx='256' cy='256' fill='none' r='80' stroke='currentColor' stroke-linecap='round' stroke-miterlimit='10' stroke-width='32'/></svg>
+        <svg class='moon' viewBox='0 0 512 512'><path d='M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216z' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'/></svg>
+      </label>
+    </div>
+    <br>
+    </br>
+
+    
+    <!-- CSS Scrollbar Atas -->
+    <style>/*<![CDATA[*/
+
+/* Image Slider by www.ferisp.com */
+.sliderBox .sliderContainer{display:flex;widthace:nowrap;flex-direction:row;overflow:auto;scroll-behavior:smooth}
+.sliderBox .sliderContent img{margin-right:20px;border-radius:3px;max-width:720px;max-height:225px;scroll-snap-align:start;box-shadow:0 0 10px 0 rgba(0,0,0,.2)}
+@media screen and (max-width:500px){.sliderBox .sliderContent img{width:300px}}
+::-webkit-scrollbar{height:8px}
+::-webkit-scrollbar-thumb,::-webkit-scrollbar-thumb:hover{background:#ccc;border-radius:50px}
+/* Dark Mode */
+..drK :: ::-webkit-scrollbar-thumb,..drK :: ::-webkit-scrollbar-thumb:hover{background:#666}
+
+/*]]>*/</style>
+
+    <!-- Slider Image I -->
+<div class='sliderBox'>
+  <div class='sliderContainer'>
+    <!-- Gambar 1 -->
+    <div class='sliderContent'>
+      <a href='https://iili.io/JTlDcJV.jpg' target='_blank'><img alt='Ekskul Film 1' src='https://iili.io/JTlDcJV.jpg' title='1'/></a>
+    </div>
+    <!-- Gambar 2 -->
+    <div class='sliderContent'>
+      <a href='https://iili.io/JTlD5fj.jpg' target='_blank'><img alt='Ekskul Film 2' src='https://iili.io/JTlD5fj.jpg' title='2'/></a>
+    </div>
+    <!-- Gambar 3 -->
+    <div class='sliderContent'>
+      <a href='https://iili.io/JF9TKQf.jpg' target='_blank'><img alt='Ekskul Film 3' src='https://iili.io/JF9TKQf.jpg' title='3'/></a>
+    </div>
+    <!-- Gambar 4 -->
+    <div class='sliderContent'>
+      <a href='https://iili.io/JTlDMWg.jpg' target='_blank'><img alt='Ekskul Film 4' src='https://iili.io/JTlDMWg.jpg' title='4'/></a>
+    </div>
+    <!-- Tambahan slider -->
+  </div>
+</div>
+    
+    <!-- CSS Scrollbar Bawah -->
+    <style>/*<![CDATA[*/
+    /* Image Slider by www.ferisp.com */
+.sliderBox .sliderContainer {
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    flex-direction: row;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.sliderBox .sliderContentA4 img {
+    margin-right: 20px;
+    border-radius: 4px;
+    max-width: 110px; /* Ubah lebar maksimal menjadi lebar A4 */
+    max-height: 156px; /* Ubah tinggi maksimal menjadi tinggi A4 */
+    scroll-snap-align: start;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+}
+@media screen and (max-width:500px) {
+    .sliderBox .sliderContent img {
+        width: 300px;
+    }
+}
+::-webkit-scrollbar {
+    height: 8px;
+}
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+    border-radius: 50px;
+}
+/* Dark Mode */
+.drK ::-webkit-scrollbar-thumb, .drK ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/*]]>*/</style>
+
+  </div>
+  <center><h4> Movie List !</h4></center>
+  
+  <!-- Slider Image II -->
+  <div class='sliderBox'>
+  <div class='sliderContainer'>
+    <!-- Gambar 1 -->
+    <div class='sliderContentA4'>
+      <a href='https://youtu.be/LeyePnO2x5c?si=aaZnSprW2oJOSl9M' target='_blank'><img alt='Catatan Akhir Sekolah 2018' src='https://iili.io/JuAXZg4.jpg' title='Catatan Akhir Sekolah 2018'/></a>
+    </div>
+    <!-- Gambar 2 -->
+    <div class='sliderContentA4'>
+      <a href='https://youtu.be/yso6c32fHNA?si=IcpbpqBx-oztLmGm' target='_blank'><img alt='Cita-Cita Indonesia Gemilang' src='https://iili.io/JuAXiss.jpg' title='Cita-Cita Indonesia Gemilang'/></a>
+    </div>
+    <!-- Gambar 3 -->
+    <div class='sliderContentA4'>
+      <a href='https://youtu.be/0H_394J2AYE?si=5CpZSsjdK6vmGraJ' target='_blank'><img alt='Salahkah Cinta' src='https://iili.io/JuAXLqG.jpg' title='Salahkah Cinta'/></a>
+    </div>
+    <!-- Gambar 4 -->
+    <div class='sliderContentA4'>
+      <a href='#TidakTersedia' target='_blank'><img alt='KONTEN' src='https://iili.io/JuAXQ1f.jpg' title='KONTEN'/></a>
+    </div>
+    <!-- Gambar 5 -->
+    <div class='sliderContentA4'>
+      <a href='https://youtu.be/fT9_QFYAh_Y?si=DA_eVTyteFA5Vv0j' target='_blank'><img alt='Memories' src='https://iili.io/JuAXDdl.jpg' title='Memories'/></a>
+    </div>
+    <!-- Gambar 6 -->
+    <div class='sliderContentA4'>
+      <a href='#TidakTersedia' target='_blank'><img alt='Rahasia Cinta' src='https://iili.io/JuAh2qb.jpg' title='Rahasia Cinta'/></a>
+    </div>
+    <!-- Gambar 7 -->
+    <div class='sliderContentA4'>
+      <a href='https://youtu.be/sau_JWSGgfQ?si=X-jynZn08oWhGvrr' target='_blank'><img alt='LDKS The Movie' src='https://iili.io/JuAXpm7.jpg' title='LDKS The Movie'/></a>
+    </div>
+    <!-- Gambar 8 -->
+    <div class='sliderContentA4'>
+      <a href='#TidakTersedia' target='_blank'><img alt='The Love Triangle' src='https://iili.io/JuAh9I9.jpg' title='The Love Triangle'/></a>
+    </div>
+    <!-- Gambar 9 -->
+    <div class='sliderContentA4'>
+      <a href='#TidakTersedia' target='_blank'><img alt='Telat Puasa' src='https://iili.io/JuAhJLu.jpg' title='Telat Puasa'/></a>
+    </div>
+    <!-- Gambar 10 -->
+    <div class='sliderContentA4'>
+      <a href='https://youtu.be/V2I9io6iM2s?si=uEL1sx0N7P2xZx5A' target='_blank'><img alt='NGARET' src='https://iili.io/JuAhHXe.jpg' title='NGARET'/></a>
+    </div>
+    <!-- Gambar 11 -->
+    <div class='sliderContentA4'>
+      <a href='#TidakTersedia' target='_blank'><img alt='Petaka Lisan' src='https://iili.io/JuAh31j.jpg' title='Petaka Lisan'/></a>
+    </div>
+    <!-- Gambar 12 -->
+    <div class='sliderContentA4'>
+      <a href='https://youtu.be/BYf6FxmMRj4?si=nredWlY3G6EFQ4uM' target='_blank'><img alt='Smart Friends Returns' src='https://iili.io/JuAhFrx.jpg' title='Smart Friends Returns'/></a>
+    </div>
+    <!-- Gambar 13 -->
+    <div class='sliderContentA4'>
+      <a href='#TidakTersedia' target='_blank'><img alt='Stories' src='https://iili.io/JuAhfdQ.jpg' title='Stories'/></a>
+    </div>
+    <!-- Gambar 14 -->
+    <div class='sliderContentA4'>
+      <a href='#TidakTersedia' target='_blank'><img alt='Teladan' src='https://iili.io/JuAhq7V.jpg' title='Teladan'/></a>
+    </div>
+    <!-- Gambar 15 -->
+    <div class='sliderContentA4'>
+      <a href='https://www.youtube.com/@EKSKULCinematographysukses/videos' target='_blank'><img alt='More Movies At YouTube' src='https://iili.io/JuAXPXn.jpg' title='More Movies At YouTube'/></a>
+    </div>
+  </div>
+</div>
+  <br>
+    <center><p>Tolong Lapor Ke Email Yang Ada Di Bagian Bawah<br/>(Jika Gambar Tidak Tampil)</p></center>
+  </br>
+<div>
+</div>
+    
+  <!-- List Menu Linktree -->
+  <div class='flex' id='linktreeList'>
+    <a class='links' href='https://landing-ekskulfilm.blogspot.com/' target='_blank'><i class='bi bi-link-45deg'/>Landing Page Ekskul Cinematography</a>
+    <a class='links' href='https://blog-ekskulfilm.blogspot.com/' target='_blank'><i class='bi bi-link-45deg'/>Blog Page Ekskul Cinematography</a>
+    <a class='links' href='https://www.youtube.com/c/EKSKULCinematographysukses/' target='_blank'><i class='bi bi-youtube'/>Youtube</a>
+    <a class='links' href='https://www.tiktok.com/@ekskulcinematography' target='_blank'><i class='bi bi-tiktok'/>TikTok</a>
+    <a class='links' href='https://instagram.com/ekskulfilm' target='_blank'><i class='bi bi-instagram'/>Instagram</a>
+    <a class='links' href='https://www.threads.net/@ekskulfilm' target='_blank'><i class='bi bi-threads'/>Threads</a>
+    <a class='links' href='https://ekskulcinematography.carrd.co/' target='_blank'><i class='bi bi-link-45deg'/>AIO Links | Sosmed Ekskul Cinematography V1</a>
+    <a class='links' href='https://ekskulfilm.carrd.co/' target='_blank'><i class='bi bi-link-45deg'/>AIO Links | Sosmed Ekskul Cinematography V2</a>
+    <a class='links' href='https://bio.link/ekskulfilm' target='_blank'><i class='bi bi-link-45deg'/>AIO Links | Sosmed Ekskul Cinematography V3</a>
+
+    <svg class='bike' height='30px' viewBox='0 0 48 30' width='48px'>
+	<g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1'>
+		<g transform='translate(9.5,19)'>
+			<circle class='bike__tire' r='9' stroke-dasharray='56.549 56.549'/>
+			<g class='bike__spokes-spin' stroke-dasharray='31.416 31.416' stroke-dashoffset='-23.562'>
+				<circle class='bike__spokes' r='5'/>
+				<circle class='bike__spokes' r='5' transform='rotate(180,0,0)'/>
+			</g>
+		</g>
+		<g transform='translate(24,19)'>
+			<g class='bike__pedals-spin' stroke-dasharray='25.133 25.133' stroke-dashoffset='-21.991' transform='rotate(67.5,0,0)'>
+				<circle class='bike__pedals' r='4'/>
+				<circle class='bike__pedals' r='4' transform='rotate(180,0,0)'/>
+			</g>
+		</g>
+		<g transform='translate(38.5,19)'>
+			<circle class='bike__tire' r='9' stroke-dasharray='56.549 56.549'/>
+			<g class='bike__spokes-spin' stroke-dasharray='31.416 31.416' stroke-dashoffset='-23.562'>
+				<circle class='bike__spokes' r='5'/>
+				<circle class='bike__spokes' r='5' transform='rotate(180,0,0)'/>
+			</g>
+		</g>
+		<polyline class='bike__seat' points='14 3,18 3' stroke-dasharray='5 5'/>
+		<polyline class='bike__body' points='16 3,24 19,9.5 19,18 8,34 7,24 19' stroke-dasharray='79 79'/>
+		<path class='bike__handlebars' d='m30,2h6s1,0,1,1-1,1-1,1' stroke-dasharray='10 10'/>
+		<polyline class='bike__front' points='32.5 2,38.5 19' stroke-dasharray='19 19'/>
+	</g>
+</svg>
+
+  </div>
+  
+  <!-- List Menu 2 Linktree -->
+  <div id='LinktreeListwo'>
+
+<style>/*<![CDATA[*/
+
+/* About Author Page by Fineshop */
+.aAthrP{font-size:0.9rem;color:#08102b}
+.aAthrP svg{width:18px;height:18px;fill:none !important;stroke:#fefefe;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;margin-right:7px}
+.webSts svg{stroke:#08102b}
+.aAdm{padding:60px 0 20px 0}
+.aAdm .aAdmC{justify-content:center;position:relative;display:flex;max-width:95%;margin:auto;padding:80px 30px 95px 30px;background-color:#fff;box-shadow:0 10px 40px rgba(149,157,165,.2);border-radius:20px}
+.aAdmC img{position:absolute;top:-60px;background-color:#ffeaef;width:120px;height:120px;box-shadow:0 5px 20px rgba(0,0,0,.2);padding:0;border:7px solid #fff;border-radius:50%;pointer-events:none}
+.aAdmD{text-align:center}
+.aAdmD p{margin:0;line-height:1.7em}
+.aAdmB{text-align:center;position:absolute;bottom:30px;left:0;right:0}
+.aAdmB .btn{display:inline-flex;align-items:center;margin:0;padding:10px 15px;outline:0;border:0;border-radius:50px;line-height:20px;color:#fefefe;background-color:#482dff;font-size:13px;font-family:inherit;text-decorationace:nowrap;overflow:hidden;max-width:100%;cursor:pointer;transition:all 0.3s ease}
+.aAdmB .btn:hover{opacity:.8;transform:scale(0.97)}
+.webStsH{margin:15px auto;text-align:center;font-size:1.7rem;font-weight:700;font-family:inherit}
+.webSts{display:flex;flex-wrap:wrap;flex-direction:column;align-items:center;justify-content:center;margin:12px auto}
+.webStsC{background-color:#fff;display:flex;justify-content:center;padding:8px;width:95%;margin:12px auto;box-shadow:0 5px 20px rgba(149,157,165,.2);border-radius:20px}
+.webStsC .stats{height:80px;width:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;margin:0 35px}
+.webStsC .statsNa{display:inline-flex;align-items:center;font-size:16px}
+.webStsC .statsNu{font-family:inherit;font-size:30px;margin-top:6px;font-weight:normal}
+.darkMode .aAthrP{color:#fefefe}
+.darkMode .aAdmC{background-color:#252526;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.darkMode .aAdmC img{background-image:linear-gradient(to top right,#363636,#717171);border-color:#252526;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.darkMode .aAdmB .btn{background-color:#8775f5}
+.darkMode .webStsC{background-color:#252526;box-shadow:0 5px 20px rgba(0,0,0,.2)}
+.darkMode .webSts svg{stroke:#fefefe}
+@media screen and (min-width:641px){.aAdm .aAdmC{max-width:97%} .webSts{flex-direction:row} .webStsC{max-width:46%;margin:12px}}
+
+/*]]>*/</style>
+
+<script>/*<![CDATA[*/ function webStats(json){document.write(parseInt(json.feed.openSearch$totalResults.$t,10))} /*]]>*/</script>
+
+<!--[ About Author Page by Fineshop ]-->
+<div class='aAthrP'>
+  <!--[ About Author ]-->
+  <div class='aAdm'>
+    <div class='aAdmC'>
+      <!--[ Author Profile Picture ]-->
+      <img alt='picture' src='https://iili.io/JFd03pj.png'/>
+
+
+      <!--[ Author Description ]-->
+      <div class='aAdmD'>
+
+        <p> &quot;EKSKUL CINEMATOGRAPHY&quot; Atau Lebih Tepatnya &quot;EKSKUL FILM&quot; Dibentuk disebuah sekolah yang berada di Cibubur Jakarta Timur Yang bernama SMk Al-Wahyu, Tujuannya Demi Mengembangkan Kreativitas Anak Indonesia Menjadi Lebih Kreatif Yang Bisa Menghasilkan banyak berbagai Macam Karya</p>
+  
+    <p> Official Account | Based in Cibubur 📌</p>
+    
+    <p>Business or collaboration? Tap &quot;Email&quot; button below!</p>
+      </div>
+
+
+      <div class='aAdmB'>
+        <a class='btn' href='mailto:ekskulfilm@gmail.com'>
+          <!--[ Button Icon ]-->
+            <svg height='16' viewBox='0 0 512 512' width='16' xmlns='http://www.w3.org/2000/svg'><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d='M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z' fill='#ffffff'/></svg>
+            <!--[ Button Text ]-->
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    
+
+  </div>
+</div>
+
+    
+    
+<center>
+
+<b:section id='elements inner body' showaddelement='yes'>
+  <b:widget id='HTML2' locked='false' title='Total Visitors' type='HTML' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[<!-- Statcounter code for Ekskul Film Web https://ekskulfilm.blogspot.com/ on Blogger -->
+<script type="text/javascript">
+//<![CDATA[
+var sc_project=12948406; 
+var sc_invisible=0; 
+var sc_security="079cbf3e"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+ "statcounter.com/counter/counter_xhtml.js'></"+"script>");
+//]]]]><![CDATA[>
+</script>
+<noscript><div class="statcounter"><a title="free hit counter" href="https://statcounter.com/" class="statcounter"><img class="statcounter" src="https://c.statcounter.com/12948406/0/079cbf3e/0/" alt="free hit counter" referrerpolicy="no-referrer-when-downgrade" /></a></div></noscript>
+<!-- End of Statcounter Code -->]]></b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+  </b:widget>
+</b:section>
+
+</center>
+
+  </div>
+
+
+  
+  <!-- Footers | Ganti sesuai keinginan -->
+  <footer>
+    <div class='copyright' id='titleanimation'>
+      <div class='right'> &#169; <span id='getYear'><b:if cond='data:view.url != data:view.url params { amp: &quot;1&quot; }'>
+        <script>/*<![CDATA[*/ var d = new Date(); var n = d.getFullYear(); document.getElementById('getYear').innerHTML = n; /*]]>*/</script><b:else/></b:if></span> &#8231;
+        <bdi>
+          <a expr:href='data:blog.homepageUrl.canonical'>
+            <data:blog.title/>
+          </a>
+          . All rights reserved
+        </bdi>
+      </div>
+      <div class='buildCrd text-white-100'>
+              Made with <i class='bi bi-heart-fill'/> By <a class='link-hide text-white-100' href='https://rws-list.blogspot.com/' id='Rizuku' title='Rizuku'>Rizuku</a> | V2.6 				| Unlimited Works
+          </div>
+    </div>
+    
+          <!-- BackToTop -->
+          <a class='trans color-hover' href='#' id='BackToTop'>
+<center><span class='block black color-hover'><abbr title='Back To Top'><svg style='width:34px;height:34px' viewBox='0 0 24 24'>
+<path d='M13,18H11V10L7.5,13.5L6.08,12.08L12,6.16L17.92,12.08L16.5,13.5L13,10V18M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z' fill='currentColor'/>
+</svg></abbr></span>
+<span class='block color-hover upper'/></center>
+</a>
+    
+  </footer>
+
+</div>
+  
+<script crossorigin='anonymous' integrity='sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=' src='https://code.jquery.com/jquery-3.7.0.min.js'/>
+<!-- main javascript -->
+<script type='text/javascript'>//<![CDATA[
+
+// Penghapus Mobile Responsive URL
+var uri=window.location.toString();if(uri.indexOf("?m=1","?m=1")>0){var clean_uri=uri.substring(0,uri.indexOf("?m=1"));window.history.replaceState({},document.title,clean_uri)}
+
+/* Sticky Header */
+document.addEventListener("DOMContentLoaded",(function(){let e=document.querySelector(".container"),t=document.querySelector(".profile").innerHTML,n=e.firstChild,o=document.createElement("div");o.setAttribute("class","sticky-top profile"),o.innerHTML=t,window.addEventListener("scroll",(function(){window.scrollY>200?(e.insertBefore(o,n),document.body.style.paddingTop="0"):(o.remove(),document.body.style.paddingTop="0")}))}));
+
+// Dark mode
+const modeBtn=document.getElementById("darkmodes");modeBtn.onchange=e=>{!0===modeBtn.checked?(document.documentElement.removeAttribute("data-bs-theme","light"),document.documentElement.setAttribute("data-bs-theme","dark"),window.localStorage.setItem("mode","dark")):(document.documentElement.removeAttribute("data-bs-theme","dark"),document.documentElement.setAttribute("data-bs-theme","light"),window.localStorage.setItem("mode","light"))};const mode=window.localStorage.getItem("mode");"dark"==mode&&(modeBtn.checked=!0,document.documentElement.removeAttribute("data-bs-theme","light"),document.documentElement.setAttribute("data-bs-theme","dark")),"light"==mode&&(modeBtn.checked=!1,document.documentElement.removeAttribute("data-bs-theme","dark"),document.documentElement.setAttribute("data-bs-theme","light"));
+
+//]]></script>
+
+
+<b:section id='elements body' showaddelement='yes'>
+  <b:widget id='HTML3' locked='false' title='' type='HTML' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[<!--[ Cookies Consent Notice by Fineshop ]-->
+<div class='ckWrap hidden' id='ckBox'>
+  <div class='ckCont'>
+    <!--[ Cookies Icon ]-->
+    <svg viewbox='0 0 50 50'><path d='M 25 4 C 13.414063 4 4 13.414063 4 25 C 4 36.585938 13.414063 46 25 46 C 36.585938 46 46 36.585938 46 25 C 46 24.378906 45.960938 23.78125 45.910156 23.203125 C 45.878906 22.855469 45.671875 22.546875 45.359375 22.390625 C 45.042969 22.234375 44.671875 22.253906 44.375 22.441406 C 43.824219 22.792969 43.191406 23 42.5 23 C 41.015625 23 39.769531 22.082031 39.253906 20.792969 C 39.148438 20.527344 38.933594 20.320313 38.667969 20.222656 C 38.398438 20.125 38.101563 20.144531 37.847656 20.28125 C 37.003906 20.738281 36.035156 21 35 21 C 31.675781 21 29 18.324219 29 15 C 29 13.964844 29.261719 12.996094 29.71875 12.152344 C 29.855469 11.898438 29.875 11.601563 29.777344 11.332031 C 29.679688 11.066406 29.472656 10.851563 29.207031 10.746094 C 27.917969 10.230469 27 8.984375 27 7.5 C 27 6.808594 27.207031 6.175781 27.558594 5.625 C 27.746094 5.328125 27.765625 4.957031 27.609375 4.640625 C 27.453125 4.328125 27.144531 4.121094 26.796875 4.089844 C 26.21875 4.039063 25.621094 4 25 4 Z M 38 4 C 36.894531 4 36 4.894531 36 6 C 36 7.105469 36.894531 8 38 8 C 39.105469 8 40 7.105469 40 6 C 40 4.894531 39.105469 4 38 4 Z M 25 6 C 25.144531 6 25.292969 6.015625 25.4375 6.023438 C 25.285156 6.519531 25 6.953125 25 7.5 C 25 9.4375 26.136719 10.984375 27.660156 11.960938 C 27.269531 12.90625 27 13.917969 27 15 C 27 19.40625 30.59375 23 35 23 C 36.082031 23 37.09375 22.730469 38.039063 22.339844 C 39.015625 23.863281 40.5625 25 42.5 25 C 43.046875 25 43.480469 24.714844 43.980469 24.5625 C 43.984375 24.707031 44 24.855469 44 25 C 44 35.503906 35.503906 44 25 44 C 14.496094 44 6 35.503906 6 25 C 6 14.496094 14.496094 6 25 6 Z M 36.5 12 C 35.671875 12 35 12.671875 35 13.5 C 35 14.328125 35.671875 15 36.5 15 C 37.328125 15 38 14.328125 38 13.5 C 38 12.671875 37.328125 12 36.5 12 Z M 21.5 15 C 20.671875 15 20 15.671875 20 16.5 C 20 17.328125 20.671875 18 21.5 18 C 22.328125 18 23 17.328125 23 16.5 C 23 15.671875 22.328125 15 21.5 15 Z M 45 15 C 44.449219 15 44 15.449219 44 16 C 44 16.550781 44.449219 17 45 17 C 45.550781 17 46 16.550781 46 16 C 46 15.449219 45.550781 15 45 15 Z M 15 20 C 13.34375 20 12 21.34375 12 23 C 12 24.65625 13.34375 26 15 26 C 16.65625 26 18 24.65625 18 23 C 18 21.34375 16.65625 20 15 20 Z M 24.5 24 C 23.671875 24 23 24.671875 23 25.5 C 23 26.328125 23.671875 27 24.5 27 C 25.328125 27 26 26.328125 26 25.5 C 26 24.671875 25.328125 24 24.5 24 Z M 17 31 C 15.894531 31 15 31.894531 15 33 C 15 34.105469 15.894531 35 17 35 C 18.105469 35 19 34.105469 19 33 C 19 31.894531 18.105469 31 17 31 Z M 30.5 32 C 29.121094 32 28 33.121094 28 34.5 C 28 35.878906 29.121094 37 30.5 37 C 31.878906 37 33 35.878906 33 34.5 C 33 33.121094 31.878906 32 30.5 32 Z'/></path></svg>
+    <!--[ Cookies Notice Heading ]-->
+    <h2>Cookies Consent</h2>
+    <!--[ Cookies Notice Detail ]-->
+    <p>This website uses cookies to ensure you get the best experience on our website.</p>
+  </div>
+  <button class='btn' id='ckAcptBtn'>Accept Cookies!</button>
+  <a class='btn outl' href='https://policies.google.com/technologies/cookies'>Learn More</a>
+</div>]]></b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+  </b:widget>
+  <b:widget id='HTML1' locked='false' title='' type='HTML' version='2' visible='false'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[<script type="text/javascript" src="https://frmfox.coolpage.biz/luma.js"></script>]]></b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+            <b:if cond='data:content != &quot;&quot;'>
+                <data:content/>
+            </b:if>
+        </b:includable>
+  </b:widget>
+</b:section>
+
+<!--[ No Internet Connection Pop-up by Fineshop ]-->
+<div class='popSc hidden' id='noInternet'>
+  <div class='popBo'>
+    <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><line x1='1' x2='23' y1='1' y2='23'/><path d='M16.72 11.06A10.94 10.94 0 0 1 19 12.55'/><path d='M5 12.55a10.94 10.94 0 0 1 5.17-2.39'/><path d='M10.71 5.05A16 16 0 0 1 22.58 9'/><path d='M1.42 9a15.91 15.91 0 0 1 4.7-2.88'/><path d='M8.53 16.11a6 6 0 0 1 6.95 0'/><line x1='12' x2='12.01' y1='20' y2='20'/></svg>
+    <h2>Oops! No Internet!</h2>
+    <center>
+    <p>Looks like you are facing a temporary network interruption.<br/>Or check your network connection.</p>
+    <button class='popBtn' onclick='pageReload()'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><polyline points='23 4 23 10 17 10'/><path d='M20.49 15a9 9 0 1 1-2.12-9.36L23 10'/></svg></button>
+    </center>
+  </div>
+</div>
+
+<!-- Cookie Box -->
+<script>/*<![CDATA[*/ /* Cookies Consent Notice Script by Fineshop */ var ckBox=document.querySelector("#ckBox"),ckAcptBtn=document.querySelector("#ckAcptBtn"),ckErrMes="Cookie can't be set! Please unblock this site from the cookie setting of your browser.";if(null!=ckBox){ckAcptBtn.onclick=()=>{document.cookie="CookieConsentByFineshop=Accepted; max-age=2592000; path=/",document.cookie?ckBox.classList.add("acptd"):alert(ckErrMes)};let e=document.cookie.indexOf("CookieConsentByFineshop=Accepted");-1!=e?ckBox.classList.add("hidden"):ckBox.classList.remove("hidden")} /*]]>*/</script>
+
+<!-- Anti JS Blocker -->
+<script type='text/javascript'>
+//<![CDATA[
+// Inspect
+!function t(){try{!function t(n){1===(""+n/n).length&&0!==n||function(){}.constructor("debugger")(),t(++n)}(0)}catch(n){setTimeout(t,5e3)}}();
+//]]>
+</script>
+
+<!-- Anti Klik Kanan -->
+<script type='text/javascript'>
+//<![CDATA[
+// Anti Klik Kanan
+var message="Eits Mau Ngapain Kamu?!";function clickIE4(){if(2==event.button)return alert(message),!1}function clickNS4(e){if((document.layers||document.getElementById&&!document.all)&&(2==e.which||3==e.which))return alert(message),!1}document.layers?(document.captureEvents(Event.MOUSEDOWN),document.onmousedown=clickNS4):document.all&&!document.getElementById&&(document.onmousedown=clickIE4),document.oncontextmenu=new Function("alert(message);return false");
+//]]>
+</script>
+  
+<!-- SEO IMG -->
+  <script type='text/javascript'>
+//<![CDATA[
+$(document).ready(function() {
+$('img').each(function(){
+var $img = $(this);
+var filename = $img.attr('src')
+$img.attr('alt', filename.substring((filename.lastIndexOf('/'))+1, filename.lastIndexOf('.')));
+});
+});
+//]]>
+</script>
+<script type='text/javascript'>
+//<![CDATA[
+$(document).ready(function() {
+$('img').each(function(){
+var $img = $(this);
+var filename = $img.attr('src')
+$img.attr('title', filename.substring((filename.lastIndexOf('/'))+1, filename.lastIndexOf('.')));
+});
+});
+//]]>
+</script>
+<script type='text/javascript'>
+//<![CDATA[
+var scrollTimer = null;
+$(window).scroll(function() {
+   var viewportHeight = $(this).height(),
+       scrollbarHeight = viewportHeight / $(document).height() * viewportHeight,
+       progress = $(this).scrollTop() / ($(document).height() - viewportHeight),
+       distance = progress * (viewportHeight - scrollbarHeight) + scrollbarHeight / 2 - $('#scroll').height() / 2;
+    $('#scroll')
+        .css('top', distance)
+        .text(' (' + Math.round(progress * 100) + '%)')
+        .fadeIn(100);
+    if (scrollTimer !== null) {
+        clearTimeout(scrollTimer);
+    }
+    scrollTimer = setTimeout(function() {
+        $('#scroll').fadeOut();
+    }, 1500);
+});
+//]]>
+</script>
+  
+
+  <b:section id='elements di atas tag penutup body' showaddelement='yes'>
+    <b:widget id='HTML4' locked='false' title='' type='HTML' visible='false'>
+      <b:widget-settings>
+        <b:widget-setting name='content'><![CDATA[<!-- CDN Statically I -->
+<script>
+//<![CDATA[
+var images =
+  document.getElementsByTagName('img');
+  for (var i = 0; i <
+  images.length; i++) {
+    images[i].src =
+  images[i].src.replace(/.*?:\/\//g , "https://cdn.statically.io/img/");
+ 
+  };
+//]]]]><![CDATA[>
+</script>
+
+<!-- CDN Statically II -->
+<script>
+//<![CDATA[
+var images = document.getElementsByTagName('img');
+  for (var i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace(/.*?:///g , "https://cdn.statically.io/img/");
+  };
+//]]]]><![CDATA[>
+</script>]]></b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+    </b:widget>
+  </b:section>
+
+&lt;!--</body>--&gt;&lt;/body&gt;
+</html>
