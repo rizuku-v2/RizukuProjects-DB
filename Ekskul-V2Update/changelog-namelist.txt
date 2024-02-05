@@ -1,0 +1,32 @@
+Java: Jawa
+East Java: Jawa Timur
+West Java: Jawa Barat
+Central Java: Jawa Tengah
+
+Borneo: Kalimantan
+West Borneo: Kalimantan Barat
+East Borneo: Kalimantan Timur
+Central Borneo: Kalimantan Tengah
+
+Sumatera: Sumatera
+West Sumatera: Sumatera Barat
+South Sumatera: Sumatera Selatan
+North Sumatera: Sumatera Utara
+
+Sulawesi: Sulawesi
+West Sulawesi: Sulawesi Barat
+North Sulawesi: Sulawesi Utara
+Central Sulawesi: Sulawesi Tengah
+South Sulawesi: Sulawesi Tengah
+South East Sulawesi: Sulawesi Tenggara
+
+Papua: Papua
+West Papua: Papua Barat
+
+Moluccas: Maluku
+North Moluccas: Maluku Utara
+
+West Nusa Tenggara: Nusa Tenggara Barat
+East Nusa Tenggara: Nusa Tenggara Timur
+
+Bali: Bali
